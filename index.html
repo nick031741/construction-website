@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Construction Vocabulary</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f2f6ff;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .sentence {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+    .sentence:hover {
+      transform: scale(1.01);
+    }
+    .text {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .btn {
+      padding: 8px 14px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+    .btn:active {
+      transform: scale(0.97);
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+    .translation {
+      display: none;
+      margin-top: 10px;
+      color: #333;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Construction Vocabulary</h1>
+  <h2>🎧 Repeat the Sentences</h2>
+
+  <div id="sentences-container"></div>
+
+  <script>
+    const sentences = [
+      {
+        en: "Building materials include gravel and sand.",
+        ru: "Строительные материалы включают гравий и песок."
+      },
+      {
+        en: "We need construction aggregates for the concrete mix.",
+        ru: "Нам нужны строительные сыпучие материалы для бетонной смеси."
+      },
+      {
+        en: "Acoustic insulation reduces noise in walls and floors.",
+        ru: "Звукоизоляция снижает шум в стенах и полах."
+      },
+      {
+        en: "Thermal insulation and fire protection insulation are essential.",
+        ru: "Теплоизоляция и огнезащита (изоляция от огня) необходимы."
+      },
+      {
+        en: "Timber, plywood and chipboard are common wood products.",
+        ru: "Древесина, фанера и ДСП - распространенные изделия из дерева."
+      },
+      {
+        en: "They installed steel staircases, gates, railings.",
+        ru: "Они установили стальные лестницы, ворота, перила."
+      },
+      {
+        en: "The store sells various electrical products.",
+        ru: "В магазине продаются различные электротовары."
+      },
+      {
+        en: "Find cables, plugs, sockets, conduits in aisle five.",
+        ru: "Найдите кабели, вилки, розетки, кабель-каналы в пятом проходе."
+      },
+      {
+        en: "The house has modern alarm systems and electrical fittings.",
+        ru: "В доме установлены современные системы сигнализации и электрическая арматура."
+      },
+      {
+        en: "Use paint, brushes, rollers or spray equipment.",
+        ru: "Используйте краску, кисти, валики или оборудование для распыления."
+      },
+      {
+        en: "We offer products in standard sizes or made to order.",
+        ru: "Мы предлагаем товары стандартных размеров или изготавливаемые на заказ."
+      },
+      {
+        en: "Please check the product specifications carefully.",
+        ru: "Пожалуйста, внимательно проверьте технические характеристики продукта."
+      }
+    ];
+
+    const container = document.getElementById("sentences-container");
+
+    sentences.forEach(({ en, ru }, index) => {
+      const div = document.createElement("div");
+      div.className = "sentence";
+
+      const textDiv = document.createElement("div");
+      textDiv.className = "text";
+      textDiv.textContent = en;
+
+      const btnPlay = document.createElement("button");
+      btnPlay.className = "btn";
+      btnPlay.textContent = "🔊 Слушать";
+      btnPlay.onclick = () => {
+        const audio = new Audio(`audio/${index + 1}.mp3`);
+        audio.play();
+      };
+
+      const btnTranslate = document.createElement("button");
+      btnTranslate.className = "btn";
+      btnTranslate.textContent = "💬 Показать перевод";
+      const translationDiv = document.createElement("div");
+      translationDiv.className = "translation";
+      translationDiv.textContent = ru;
+
+      btnTranslate.onclick = () => {
+        const isVisible = translationDiv.style.display === "block";
+        translationDiv.style.display = isVisible ? "none" : "block";
+        btnTranslate.textContent = isVisible ? "💬 Показать перевод" : "🙈 Скрыть перевод";
+      };
+
+      div.appendChild(textDiv);
+      div.appendChild(btnPlay);
+      div.appendChild(btnTranslate);
+      div.appendChild(translationDiv);
+
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>
