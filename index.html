@@ -115,10 +115,9 @@
       translationDiv.textContent = ru;
 
       btnTranslate.onclick = () => {
-        translationDiv.style.display = translationDiv.style.display === "none" ? "block" : "none";
-        btnTranslate.textContent = translationDiv.style.display === "block"
-          ? "🙈 Скрыть перевод"
-          : "💬 Показать перевод";
+        const isVisible = translationDiv.style.display === "block";
+        translationDiv.style.display = isVisible ? "none" : "block";
+        btnTranslate.textContent = isVisible ? "💬 Показать перевод" : "🙈 Скрыть перевод";
       };
 
       div.appendChild(textDiv);
