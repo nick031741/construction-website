@@ -12,18 +12,25 @@
       padding: 20px;
       background-color: #f2f6ff;
     }
-    h1, h2 {
+    .main-title {
       text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #333;
     }
     .nav {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
     .nav a {
       margin: 0 10px;
       text-decoration: none;
       color: #007bff;
       font-weight: bold;
+      font-size: 18px;
+    }
+    .nav a:hover {
+      text-decoration: underline;
     }
     .sentence {
       margin-bottom: 20px;
@@ -32,7 +39,6 @@
       border-radius: 10px;
       background: #ffffff;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease;
     }
     .sentence:hover {
       transform: scale(1.01);
@@ -50,10 +56,6 @@
       color: white;
       cursor: pointer;
       margin-right: 10px;
-      transition: background-color 0.2s, transform 0.1s;
-    }
-    .btn:active {
-      transform: scale(0.97);
     }
     .btn:hover {
       background-color: #0056b3;
@@ -68,60 +70,27 @@
 </head>
 <body>
   <h1 class="main-title">🎧 English Vocabulary Practice</h1>
+
   <div class="nav">
-    <a href="index.html">🏗 Construction</a>
+    <a href="index.html">🏗 Construction</a> |
     <a href="church.html">⛪ Church and Faith</a>
   </div>
 
-  <h2>🎧 Repeat the Sentences</h2>
   <div id="sentences-container"></div>
 
   <script>
     const sentences = [
-      {
-        en: "The pastor gave a powerful sermon.",
-        ru: "Пастор произнёс сильную проповедь."
-      },
-      {
-        en: "The choir sang beautifully during worship.",
-        ru: "Хор пел красиво во время служения"
-      },
-      {
-        en: "She said a prayer for her family’s health.",
-        ru: "Она произнесла молитву за здоровье своей семьи."
-      },
-      {
-        en: "We had coffee and fellowship after church.",
-        ru: "После церкви мы пили кофе и общались."
-      },
-      {
-        en: "We take Holy Communion every Sunday.",
-        ru: "Мы причащаемся каждое воскресенье."
-      },
-      {
-        en: "He truly repented and changed his life.",
-        ru: "ООн искренне покаялся и изменил свою жизнь."
-      },
-      {
-        en: "Jesus’ atonement paid for our sins.",
-        ru: "Искупление Иисуса очистило нас от грехов."
-      },
-      {
-        en: "We praised God together.",
-        ru: "Мы вместе прославляли Бога."
-      },
-      {
-        en: "The new believer was baptized in the church.",
-        ru: "Нового верующего крестили в церкви."
-      },
-      {
-        en: "Jesus taught us to forgive others.",
-        ru: "Иисус учил нас прощать других."
-      },
-      {
-        en: "My family attends church every Sunday.",
-        ru: "Моя семья ходит в церковь каждое воскресенье."
-      }
+      { en: "The pastor gave a powerful sermon.", ru: "Пастор произнёс сильную проповедь." },
+      { en: "The choir sang beautifully during worship.", ru: "Хор пел красиво во время служения." },
+      { en: "She said a prayer for her family’s health.", ru: "Она произнесла молитву за здоровье своей семьи." },
+      { en: "We had coffee and fellowship after church.", ru: "После церкви мы пили кофе и общались." },
+      { en: "We take Holy Communion every Sunday.", ru: "Мы причащаемся каждое воскресенье." },
+      { en: "He truly repented and changed his life.", ru: "Он искренне покаялся и изменил свою жизнь." },
+      { en: "Jesus’ atonement paid for our sins.", ru: "Искупление Иисуса очистило нас от грехов." },
+      { en: "We praised God together.", ru: "Мы вместе прославляли Бога." },
+      { en: "The new believer was baptized in the church.", ru: "Нового верующего крестили в церкви." },
+      { en: "Jesus taught us to forgive others.", ru: "Иисус учил нас прощать других." },
+      { en: "My family attends church every Sunday.", ru: "Моя семья ходит в церковь каждое воскресенье." }
     ];
 
     const container = document.getElementById("sentences-container");
@@ -133,14 +102,6 @@
       const textDiv = document.createElement("div");
       textDiv.className = "text";
       textDiv.textContent = en;
-
-      const btnPlay = document.createElement("button");
-      btnPlay.className = "btn";
-      btnPlay.textContent = "🔊 Слушать";
-      btnPlay.onclick = () => {
-        const audio = new Audio(`audio/${index + 1}.mp3`);
-        audio.play();
-      };
 
       const btnTranslate = document.createElement("button");
       btnTranslate.className = "btn";
@@ -156,7 +117,6 @@
       };
 
       div.appendChild(textDiv);
-      div.appendChild(btnPlay);
       div.appendChild(btnTranslate);
       div.appendChild(translationDiv);
 
