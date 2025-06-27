@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>English Topics</title>
+  <title>Church and Faith Vocabulary Practice</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,11 +12,16 @@
       padding: 20px;
       background-color: #f2f6ff;
     }
-    .main-title {
+    h1, h2 {
       text-align: center;
-      font-size: 28px;
+    }
+    h1 {
+      font-size: 26px;
+      margin-bottom: 5px;
+    }
+    h2 {
+      font-size: 22px;
       margin-bottom: 20px;
-      color: #333;
     }
     .nav {
       text-align: center;
@@ -39,6 +44,7 @@
       border-radius: 10px;
       background: #ffffff;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
     }
     .sentence:hover {
       transform: scale(1.01);
@@ -56,6 +62,10 @@
       color: white;
       cursor: pointer;
       margin-right: 10px;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+    .btn:active {
+      transform: scale(0.97);
     }
     .btn:hover {
       background-color: #0056b3;
@@ -69,10 +79,11 @@
   </style>
 </head>
 <body>
-  <h1 class="main-title">🎧 English Vocabulary Practice</h1>
+  <h1>🎧 English Vocabulary Practice</h1>
+  <h2>Repeat the sentences</h2>
 
   <div class="nav">
-    <a href="index.html">🏗 Construction</a> |
+    <a href="index.html">🏗 Construction</a>
     <a href="church.html">⛪ Church and Faith</a>
   </div>
 
@@ -81,7 +92,7 @@
   <script>
     const sentences = [
       { en: "The pastor gave a powerful sermon.", ru: "Пастор произнёс сильную проповедь." },
-      { en: "The choir sang beautifully during worship.", ru: "Хор пел красиво во время служения." },
+      { en: "The choir sang beautifully during worship.", ru: "Хор пел красиво во время служения" },
       { en: "She said a prayer for her family’s health.", ru: "Она произнесла молитву за здоровье своей семьи." },
       { en: "We had coffee and fellowship after church.", ru: "После церкви мы пили кофе и общались." },
       { en: "We take Holy Communion every Sunday.", ru: "Мы причащаемся каждое воскресенье." },
@@ -103,6 +114,14 @@
       textDiv.className = "text";
       textDiv.textContent = en;
 
+      const btnPlay = document.createElement("button");
+      btnPlay.className = "btn";
+      btnPlay.textContent = "🔊 Слушать";
+      btnPlay.onclick = () => {
+        const audio = new Audio(`audio/${index + 1}.mp3`);
+        audio.play();
+      };
+
       const btnTranslate = document.createElement("button");
       btnTranslate.className = "btn";
       btnTranslate.textContent = "💬 Показать перевод";
@@ -117,6 +136,7 @@
       };
 
       div.appendChild(textDiv);
+      div.appendChild(btnPlay);
       div.appendChild(btnTranslate);
       div.appendChild(translationDiv);
 
