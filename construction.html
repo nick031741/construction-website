@@ -14,7 +14,21 @@
     }
     h1 {
       text-align: center;
+      margin-bottom: 10px;
+    }
+    .nav {
+      text-align: center;
       margin-bottom: 30px;
+    }
+    .nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .nav a:hover {
+      text-decoration: underline;
     }
     .sentence {
       margin-bottom: 20px;
@@ -50,58 +64,28 @@
 </head>
 <body>
   <h1>🎧 Construction Vocabulary Practice</h1>
+
+  <div class="nav">
+    <a href="index.html">🏗 Construction</a> |
+    <a href="church.html">⛪ Church and Faith</a>
+  </div>
+
   <div id="sentences-container"></div>
 
   <script>
     const sentences = [
-      {
-        en: "Building materials include gravel and sand.",
-        ru: "Строительные материалы включают гравий и песок."
-      },
-      {
-        en: "We need construction aggregates for the concrete mix.",
-        ru: "Нам нужны строительные сыпучие материалы для бетонной смеси."
-      },
-      {
-        en: "Acoustic insulation reduces noise in walls and floors.",
-        ru: "Звукоизоляция снижает шум в стенах и полах."
-      },
-      {
-        en: "Thermal insulation and fire protection insulation are essential.",
-        ru: "Теплоизоляция и огнезащита (изоляция от огня) необходимы."
-      },
-      {
-        en: "Timber, plywood and chipboard are common wood products.",
-        ru: "Древесина, фанера и ДСП - распространенные изделия из дерева."
-      },
-      {
-        en: "They installed steel staircases, gates, railings.",
-        ru: "Они установили стальные лестницы, ворота, перила."
-      },
-      {
-        en: "The store sells various electrical products.",
-        ru: "В магазине продаются различные электротовары."
-      },
-      {
-        en: "Find cables, plugs, sockets, conduits in aisle five.",
-        ru: "Найдите кабели, вилки, розетки, кабель-каналы в пятом проходе."
-      },
-      {
-        en: "The house has modern alarm systems and electrical fittings.",
-        ru: "В доме установлены современные системы сигнализации и электрическая арматура."
-      },
-      {
-        en: "Use paint, brushes, rollers or spray equipment.",
-        ru: "Используйте краску, кисти, валики или оборудование для распыления."
-      },
-      {
-        en: "We offer products in standard sizes or made to order.",
-        ru: "Мы предлагаем товары стандартных размеров или изготавливаемые на заказ."
-      },
-      {
-        en: "Please check the product specifications carefully.",
-        ru: "Пожалуйста, внимательно проверьте технические характеристики продукта."
-      }
+      { en: "Building materials include gravel and sand.", ru: "Строительные материалы включают гравий и песок." },
+      { en: "We need construction aggregates for the concrete mix.", ru: "Нам нужны строительные сыпучие материалы для бетонной смеси." },
+      { en: "Acoustic insulation reduces noise in walls and floors.", ru: "Звукоизоляция снижает шум в стенах и полах." },
+      { en: "Thermal insulation and fire protection insulation are essential.", ru: "Теплоизоляция и огнезащита необходимы." },
+      { en: "Timber, plywood and chipboard are common wood products.", ru: "Древесина, фанера и ДСП - распространенные изделия из дерева." },
+      { en: "They installed steel staircases, gates, railings.", ru: "Они установили стальные лестницы, ворота, перила." },
+      { en: "The store sells various electrical products.", ru: "В магазине продаются различные электротовары." },
+      { en: "Find cables, plugs, sockets, conduits in aisle five.", ru: "Найдите кабели, вилки, розетки, кабель-каналы в пятом проходе." },
+      { en: "The house has modern alarm systems and electrical fittings.", ru: "В доме установлены современные системы сигнализации и электрическая арматура." },
+      { en: "Use paint, brushes, rollers or spray equipment.", ru: "Используйте краску, кисти, валики или оборудование для распыления." },
+      { en: "We offer products in standard sizes or made to order.", ru: "Мы предлагаем товары стандартных размеров или изготавливаемые на заказ." },
+      { en: "Please check the product specifications carefully.", ru: "Пожалуйста, внимательно проверьте технические характеристики продукта." }
     ];
 
     const container = document.getElementById("sentences-container");
@@ -131,6 +115,9 @@
 
       btnTranslate.onclick = () => {
         translationDiv.style.display = translationDiv.style.display === "none" ? "block" : "none";
+        btnTranslate.textContent = translationDiv.style.display === "block"
+          ? "🙈 Скрыть перевод"
+          : "💬 Показать перевод";
       };
 
       div.appendChild(textDiv);
