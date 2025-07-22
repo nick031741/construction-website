@@ -88,59 +88,59 @@
 
   <div id="sentences-container"></div>
 
-  <script>
+<script>
     const sentences = [
-      { en: "The pastor gave a powerful sermon.", ru: "Пастор произнёс сильную проповедь." },
-      { en: "The choir sang beautifully during worship.", ru: "Хор пел красиво во время служения." },
-      { en: "She said a prayer for her family’s health.", ru: "Она произнесла молитву за здоровье своей семьи." },
-      { en: "We had coffee and fellowship after church.", ru: "После церкви мы пили кофе и общались." },
-      { en: "We take Holy Communion every Sunday.", ru: "Мы причащаемся каждое воскресенье." },
-      { en: "He truly repented and changed his life.", ru: "Он искренне покаялся и изменил свою жизнь." },
-      { en: "Jesus’ atonement paid for our sins.", ru: "Искупление Иисуса очистило нас от грехов." },
-      { en: "We praised God together.", ru: "Мы вместе прославляли Бога." },
-      { en: "The new believer was baptized in the church.", ru: "Нового верующего крестили в церкви." },
-      { en: "Jesus taught us to forgive others.", ru: "Иисус учил нас прощать других." },
-      { en: "My family attends church every Sunday.", ru: "Моя семья ходит в церковь каждое воскресенье." }
+        { en: "The pastor gave a powerful sermon.", ru: "Пастор произнёс сильную проповедь." },
+        { en: "The choir sang beautifully during worship.", ru: "Хор пел красиво во время служения." },
+        { en: "She said a prayer for her family’s health.", ru: "Она произнесла молитву за здоровье своей семьи." },
+        { en: "We had coffee and fellowship after church.", ru: "После церкви мы пили кофе и общались." },
+        { en: "We take Holy Communion every Sunday.", ru: "Мы причащаемся каждое воскресенье." },
+        { en: "He truly repented and changed his life.", ru: "Он искренне покаялся и изменил свою жизнь." },
+        { en: "Jesus’ atonement paid for our sins.", ru: "Искупление Иисуса очистило нас от грехов." },
+        { en: "We praised God together.", ru: "Мы вместе прославляли Бога." },
+        { en: "The new believer was baptized in the church.", ru: "Нового верующего крестили в церкви." },
+        { en: "Jesus taught us to forgive others.", ru: "Иисус учил нас прощать других." },
+        { en: "My family attends church every Sunday.", ru: "Моя семья ходит в церковь каждое воскресенье." }
     ];
 
     const container = document.getElementById("sentences-container");
 
     sentences.forEach(({ en, ru }, index) => {
-      const div = document.createElement("div");
-      div.className = "sentence";
+        const div = document.createElement("div");
+        div.className = "sentence";
 
-      const textDiv = document.createElement("div");
-      textDiv.className = "text";
-      textDiv.textContent = en;
+        const textDiv = document.createElement("div");
+        textDiv.className = "text";
+        textDiv.textContent = en;
 
-      const btnPlay = document.createElement("button");
-      btnPlay.className = "btn";
-      btnPlay.textContent = "🔊 Слушать";
-      btnPlay.onclick = () => {
-        const audio = new Audio(`./audio/audio_church_/${index + 1}.mp3`);
-        audio.play();
-      };
+        const btnPlay = document.createElement("button");
+        btnPlay.className = "btn";
+        btnPlay.textContent = "🔊 Слушать";
+        btnPlay.onclick = () => {
+            const audio = new Audio(`./audio/church/audio_church_${index + 1}.mp3`);
+            audio.play();
+        };
 
-      const btnTranslate = document.createElement("button");
-      btnTranslate.className = "btn";
-      btnTranslate.textContent = "💬 Показать перевод";
-      const translationDiv = document.createElement("div");
-      translationDiv.className = "translation";
-      translationDiv.textContent = ru;
+        const btnTranslate = document.createElement("button");
+        btnTranslate.className = "btn";
+        btnTranslate.textContent = "💬 Показать перевод";
+        const translationDiv = document.createElement("div");
+        translationDiv.className = "translation";
+        translationDiv.textContent = ru;
 
-      btnTranslate.onclick = () => {
-        const isVisible = translationDiv.style.display === "block";
-        translationDiv.style.display = isVisible ? "none" : "block";
-        btnTranslate.textContent = isVisible ? "💬 Показать перевод" : "🙈 Скрыть перевод";
-      };
+        btnTranslate.onclick = () => {
+            const isVisible = translationDiv.style.display === "block";
+            translationDiv.style.display = isVisible ? "none" : "block";
+            btnTranslate.textContent = isVisible ? "💬 Показать перевод" : "🙈 Скрыть перевод";
+        };
 
-      div.appendChild(textDiv);
-      div.appendChild(btnPlay);
-      div.appendChild(btnTranslate);
-      div.appendChild(translationDiv);
+        div.appendChild(textDiv);
+        div.appendChild(btnPlay);
+        div.appendChild(btnTranslate);
+        div.appendChild(translationDiv);
 
-      container.appendChild(div);
+        container.appendChild(div);
     });
-  </script>
+</script>
 </body>
 </html>
